@@ -427,6 +427,15 @@
       color: green;
     }
   }
+  &--holiday {
+    background-color: $datepicker__holiday-color;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $datepicker__holiday-color;
+    }
+  }
 
   &--selected,
   &--in-selecting-range,
@@ -676,4 +685,20 @@
   width: 1em;
   height: 1em;
   vertical-align: -0.125em;
+}
+
+.my-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.my-tooltip[data-tooltip-content]:hover::after {
+  content: attr(data-tooltip-content);
+  position: absolute;
+  bottom: -140%;
+  left: -45px;
+  color: white;
+  background: #000000c7;
+  padding: 4px 8px;
+  border-radius: 4px;
 }

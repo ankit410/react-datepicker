@@ -9,6 +9,14 @@ const Example = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [isScrolled, setIsScrolled] = useState(true);
 
+  const holidays = [
+    { date: new Date(2023, 7, 26), name: "National Holiday 1" }, // August 26, 2023
+    { date: new Date(2023, 8, 15), name: "National Holiday 2" }, // September 15, 2023
+    { date: new Date(2023, 9, 5), name: "National Holiday 3" }, // October 5, 2023
+    { date: new Date(2023, 10, 18), name: "National Holiday 4" }, // November 18, 2023
+    { date: new Date(2023, 11, 25), name: "National Holiday 5" }, // December 25, 2023
+  ];
+
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
   }, []);
@@ -25,6 +33,7 @@ const Example = () => {
   return (
     <DatePicker
       open={isOpen && isScrolled}
+      holidays={holidays}
       selected={startDate}
       onChange={(date) => {
         setStartDate(date);
@@ -51,7 +60,14 @@ const Root = () => (
             />
           </a>
         </div>
+        <h1 className="hero__title">
+          To Use holiday Prop pass an Array of type{" "}
+          <code
+            style={{ background: "black" }}
+          >{`{date: Date, name: string}`}</code>
+        </h1>
         <div className="hero__example">
+          {" "}
           <Example />
         </div>
       </div>
